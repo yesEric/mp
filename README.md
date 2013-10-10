@@ -6,4 +6,8 @@ mp
 2013-9-29
 ---------
 
-加入Sitemesh功能
+加入Sitemesh支持
+
+2013-10-10
+
+加入Hibernate支持
