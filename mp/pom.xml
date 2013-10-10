@@ -5,11 +5,11 @@
 	<groupId>com.eric</groupId>
 	<artifactId>mp</artifactId>
 	<packaging>war</packaging>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>Demo Project</name>
 	<url>http://maven.apache.org</url>
 	<prerequisites>
-		<maven>2.2.1</maven>
+		<maven>2.1</maven>
 	</prerequisites>
 
 
