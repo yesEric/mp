@@ -9,8 +9,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Indexed;
+
 @Entity
 @Table(name = "app_user")
+@Indexed
 public class User extends BaseObject{
 
 	private static final long serialVersionUID = -6412014504991965443L;
@@ -33,6 +37,7 @@ public class User extends BaseObject{
 	}
 
 	@Column(nullable = false, length = 50, unique = true)
+	@Field
 	public String getUsername() {
 		return username;
 	}

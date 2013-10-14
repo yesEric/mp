@@ -41,12 +41,11 @@ public abstract class BaseDaoTestCase extends AbstractTransactionalJUnit4SpringC
     protected ResourceBundle rb;
 
     /**
-     * Default constructor - populates "rb" variable if properties file exists for the class in
-     * src/test/resources.
+     * 缺省构造器用于加载类对应的资源文件，这里只是检查是否src/test/resources下存在要绑定的资源文件。
+     * 
      */
     public BaseDaoTestCase() {
-        // Since a ResourceBundle is not required for each class, just
-        // do a simple check to see if one exists
+        
         String className = this.getClass().getName();
 
         try {
@@ -57,12 +56,10 @@ public abstract class BaseDaoTestCase extends AbstractTransactionalJUnit4SpringC
     }
 
     /**
-     * Utility method to populate a javabean-style object with values
-     * from a Properties file
-     *
-     * @param obj the model object to populate
-     * @return Object populated object
-     * @throws Exception if BeanUtils fails to copy properly
+     * 从资源文件中加载JavaBean属性的值
+     * @param 要绑定的Java类型
+     * @return 已绑定资源文件内值得Java对象
+     * @throws Exception 复制对象出错后抛出异常
      */
     protected Object populate(final Object obj) throws Exception {
         // loop through all the beans methods and set its properties from its .properties file
@@ -79,11 +76,10 @@ public abstract class BaseDaoTestCase extends AbstractTransactionalJUnit4SpringC
     }
 
     /**
-     * Create a HibernateTemplate from the SessionFactory and call flush() and clear() on it.
-     * Designed to be used after "save" methods in tests: http://issues.appfuse.org/browse/APF-178.
+     * 保存对象值后flush到数据库: http://issues.appfuse.org/browse/APF-178.
      *
      * @throws org.springframework.beans.BeansException
-     *          when can't find 'sessionFactory' bean
+     *          找不到SessionFactory时抛出异常
      */
     protected void flush() throws BeansException {
         Session currentSession = sessionFactory.getCurrentSession();
@@ -91,7 +87,7 @@ public abstract class BaseDaoTestCase extends AbstractTransactionalJUnit4SpringC
     }
 
     /**
-     * Flush search indexes, to be done after a reindex() or reindexAll() operation
+     * reindex() 或 reindexAll() 操作后刷新查询索引
      */
     public void flushSearchIndexes() {
         Session currentSession = sessionFactory.getCurrentSession();
