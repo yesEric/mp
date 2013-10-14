@@ -217,6 +217,7 @@
             <version>${hibernate.version}</version>
         </dependency>
         <!-- Hibernate Search -->
+        <!-- Hibernate 查询库 -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-search</artifactId>
@@ -228,7 +229,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        
+        <!-- Hibernate 查询分析器 -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-search-analyzers</artifactId>
@@ -293,7 +294,7 @@
         </dependency>
         <!-- 以下几个Apache lib是Spring额外需要的 -->
         
-                <dependency>
+         <dependency>
             <groupId>commons-beanutils</groupId>
             <artifactId>commons-beanutils</artifactId>
             <version>${commons.beanutils.version}</version>
