@@ -8,10 +8,8 @@ import org.hibernate.search.SearchException;
 
 
 /**
- * Generic DAO (Data Access Object) 用于完成针对POJO对象的通用的CRUD.
+ * 通用 DAO (Data Access Object)接口， 用于完成针对POJO对象的通用的CRUD.
  *
- * <p>Extend this interface if you want typesafe (no casting necessary) DAO's for your
- * domain objects.
  * <p>如果你想为你的领域对象使用类型安全的DAO，需要继承这个接口.
  *
  * @author <a href="mailto:liuguodong@gmail.com">Eric</a>
@@ -36,66 +34,65 @@ public interface GenericDao <T, PK extends Serializable> {
 
     /**
      * Search方法可以查询.
-     * @param searchTerm the term to search for
-     * @return the matching records
+     * @param 查询条件
+     * @return 匹配的查询结果
      * @throws SearchException
      */
     List<T> search(String searchTerm) throws SearchException;
 
     /**
-     * Generic method to get an object based on class and identifier. An
-     * ObjectRetrievalFailureException Runtime Exception is thrown if
-     * nothing is found.
+     * 获取ID对应的对象.
+     * 如果找不到对象会抛出ObjectRetrievalFailureException运行时异常.
      *
-     * @param id the identifier (primary key) of the object to get
-     * @return a populated object
+     * @param id 对象ID
+     * @return 根据ID获取的对象
      * @see org.springframework.orm.ObjectRetrievalFailureException
      */
     T get(PK id);
 
     /**
-     * Checks for existence of an object of type T using the id arg.
-     * @param id the id of the entity
-     * @return - true if it exists, false if it doesn't
+     * 检查ID对应的对象是否存在.
+     * @param id 实体的ID
+     * @return - true 表示存在, false 表示不存在
      */
     boolean exists(PK id);
 
     /**
-     * Generic method to save an object - handles both update and insert.
-     * @param object the object to save
-     * @return the persisted object
+     * 通用对象保持方法，包括新增和更新.
+     * @param 要保存的对象
+     * @return 保存后的对象
      */
     T save(T object);
 
 
     /**
-     * Generic method to delete an object
-     * @param object the object to remove
+     * 删除一个对象的通用方法。
+     * @param 要删除的对象
      */
     void remove(T object);
 
     /**
-     * Generic method to delete an object
-     * @param id the identifier (primary key) of the object to remove
+     * 通过对象ID删除对象的方法.
+     * @param 实体对象的主键
      */
     void remove(PK id);
 
     /**
-     * Find a list of records by using a named query
-     * @param queryName query name of the named query
-     * @param queryParams a map of the query names and the values
-     * @return a list of the records found
+     * 根据命名查询语句进行查询的方法.
+     * @param queryName 查询语句的名称
+     * @param queryParams 查询语句的参数列表
+     * @return 查询结果集合
      */
     List<T> findByNamedQuery(String queryName, Map<String, Object> queryParams);
 
     /**
-     * Generic method to regenerate full text index of the persistent class T
+     * 为当前对象生成全文查找索引的通用方法
      */
     void reindex();
 
     /**
-     * Generic method to regenerate full text index of all indexed classes
-     * @param async true to perform the reindexing asynchronously
+     * 将所有已索引对象重新索引的方法
+     * @param async true 表示异步执行
      */
     void reindexAll(boolean async);
 }
