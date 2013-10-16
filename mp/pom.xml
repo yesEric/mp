@@ -292,6 +292,16 @@
             <artifactId>spring-webmvc</artifactId>
             <version>${spring.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectj.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>${aspectj.version}</version>
+        </dependency>
         <!-- 以下几个Apache lib是Spring额外需要的 -->
         
          <dependency>
@@ -375,5 +385,6 @@
         <commons.lang.version>2.6</commons.lang.version>
         <commons.fileupload.version>1.2.1</commons.fileupload.version>
         <commons.io.version>2.0.1</commons.io.version>
+        <aspectj.version>1.6.10</aspectj.version>
 	</properties>
 </project>
