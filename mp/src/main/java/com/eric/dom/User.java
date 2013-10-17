@@ -8,10 +8,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
+import org.hibernate.search.annotations.DocumentId;
 import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Indexed;
-
+@XmlRootElement
 @Entity
 @Table(name = "app_user")
 @Indexed
@@ -38,6 +41,7 @@ public class User extends BaseObject{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@DocumentId
 	public Long getId() {
 		return id;
 	}
@@ -57,6 +61,7 @@ public class User extends BaseObject{
 	}
 
 	@Column(nullable = false)
+	@XmlTransient
 	public String getPassword() {
 		return password;
 	}

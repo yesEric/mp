@@ -9,7 +9,9 @@ import com.eric.dao.UserDao;
 import com.eric.dom.User;
 import com.eric.service.UserExistsException;
 import com.eric.service.UserManager;
+import com.eric.service.UserService;
 
+import javax.jws.WebService;
 
 /**
  * UserManager 实现类.
@@ -17,7 +19,8 @@ import com.eric.service.UserManager;
  *
  */
 @Service("userManager")
-public class UserManagerImpl extends GenericManagerImpl<User, Long> implements UserManager {
+@WebService(serviceName="UserService",endpointInterface="com.eric.service.UserService")
+public class UserManagerImpl extends GenericManagerImpl<User, Long> implements UserManager,UserService {
     
     private UserDao userDao;
     

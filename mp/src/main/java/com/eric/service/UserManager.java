@@ -1,16 +1,17 @@
 package com.eric.service;
 
+import java.util.List;
+
 import com.eric.dao.UserDao;
 import com.eric.dom.User;
-
-
-import java.util.List;
+import javax.jws.WebService;
 
 
 /**
  *实现Web层和持久层通信的业务接口.
  *
  */
+
 public interface UserManager extends GenericManager<User, Long> {
     /**
      * Convenience method for testing - allows you to mock the DAO and set it on an interface.

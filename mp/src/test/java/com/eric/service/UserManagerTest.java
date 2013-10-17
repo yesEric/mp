@@ -41,8 +41,7 @@ public class UserManagerTest extends BaseManagerTestCase {
     public void testAddAndRemoveUser() throws Exception {
         user = new User();
 
-        // call populate method in super class to populate test data
-        // from a properties file matching this class name
+        // 通过populate方法将属性资源文件中的字段值加载到JavaBean中
         user = (User) populate(user);
 
         
