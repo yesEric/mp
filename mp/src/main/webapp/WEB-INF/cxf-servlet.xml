@@ -12,7 +12,7 @@
     <import resource="classpath:META-INF/cxf/cxf-servlet.xml"/>
 
     <bean id="jsonProvider" class="org.codehaus.jackson.jaxrs.JacksonJsonProvider"/>
-
+ <!-- 下面的#userManager是说引用SpringBean中名为userManager的Bean，实际上最终是找到userManager这个Bean的最终实现类UserManagerImpl -->
     <jaxws:endpoint id="userService" implementor="#userManager" address="/UserService"/>
     <!-- Add new endpoints for additional services you'd like to expose -->
     
@@ -20,6 +20,7 @@
         <jaxrs:features>
             <cxf:logging/>
         </jaxrs:features>
+        <!--这里的userManager 与前面的--implementor="#userManager" 中# 后面的userManager对应>
         <jaxrs:serviceBeans>
             <ref bean="userManager"/>
         </jaxrs:serviceBeans>
