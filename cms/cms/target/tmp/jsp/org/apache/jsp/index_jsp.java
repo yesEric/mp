@@ -19,6 +19,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_fmt_message_key_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_set_var_value_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_set_var;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_redirect_url_nobody;
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
@@ -30,12 +31,14 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     _jspx_tagPool_fmt_message_key_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_c_set_var_value_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_c_set_var = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_c_redirect_url_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
   }
 
   public void _jspDestroy() {
     _jspx_tagPool_fmt_message_key_nobody.release();
     _jspx_tagPool_c_set_var_value_nobody.release();
     _jspx_tagPool_c_set_var.release();
+    _jspx_tagPool_c_redirect_url_nobody.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -69,18 +72,8 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("\r\n");
       out.write("<!-- 这是一个包含了JSP需要引用的通用JSP标记库的页面 -->");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("<head>\r\n");
-      out.write("    <title>");
-      if (_jspx_meth_fmt_message_1(_jspx_page_context))
+      if (_jspx_meth_c_redirect_0(_jspx_page_context))
         return;
-      out.write("</title>\r\n");
-      out.write("    <meta name=\"menu\" content=\"Login\"/>\r\n");
-      out.write("</head>\r\n");
-      out.write("<body id=\"index\">\r\n");
-      out.write("</body>");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
@@ -165,21 +158,21 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     return false;
   }
 
-  private boolean _jspx_meth_fmt_message_1(PageContext _jspx_page_context)
+  private boolean _jspx_meth_c_redirect_0(PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
-    //  fmt:message
-    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_1 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
-    _jspx_th_fmt_message_1.setPageContext(_jspx_page_context);
-    _jspx_th_fmt_message_1.setParent(null);
-    _jspx_th_fmt_message_1.setKey("login.title");
-    int _jspx_eval_fmt_message_1 = _jspx_th_fmt_message_1.doStartTag();
-    if (_jspx_th_fmt_message_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_1);
+    //  c:redirect
+    org.apache.taglibs.standard.tag.rt.core.RedirectTag _jspx_th_c_redirect_0 = (org.apache.taglibs.standard.tag.rt.core.RedirectTag) _jspx_tagPool_c_redirect_url_nobody.get(org.apache.taglibs.standard.tag.rt.core.RedirectTag.class);
+    _jspx_th_c_redirect_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_redirect_0.setParent(null);
+    _jspx_th_c_redirect_0.setUrl("/admin/users.do");
+    int _jspx_eval_c_redirect_0 = _jspx_th_c_redirect_0.doStartTag();
+    if (_jspx_th_c_redirect_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_redirect_url_nobody.reuse(_jspx_th_c_redirect_0);
       return true;
     }
-    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_1);
+    _jspx_tagPool_c_redirect_url_nobody.reuse(_jspx_th_c_redirect_0);
     return false;
   }
 }
